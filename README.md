@@ -1,15 +1,15 @@
 
-🚖 RIDECO Taxi Analytics Engineering Pipeline
+## 🚖 RIDECO Taxi Analytics Engineering Pipeline
 
 "Building the data foundation that powers smarter transit solutions."
 
-📖 Project Overview
+## 📖 Project Overview
 
 This project simulates a production-grade ELT (Extract, Load, Transform) pipeline for a ride-sharing company similar to RideCo.
 
 The goal was not just to visualize data, but to build a robust Analytics Engineering architecture that ensures data accuracy, modularity, and performance. I ingested millions of rows of NYC Taxi data, modeled it using a Star Schema, and built an interactive dashboard for stakeholders.
 
-🏗️ The Architecture
+## 🏗️ The Architecture
 ```
 
 graph LR
@@ -24,7 +24,7 @@ graph LR
     end
 ```
 
-🚀 Key Features & Engineering Decisions
+## 🚀 Key Features & Engineering Decisions
 
 1. Robust Data Ingestion (Airflow & Python)
 
@@ -62,7 +62,7 @@ Instead of a static report, I built a dynamic Python web app.
 
 + Performance: Queries the pre-aggregated fact_trips table for sub-second load times.
 
-📂 Project Structure
+## 📂 Project Structure
 ```
 
 rideco-analytics-portfolio/
@@ -133,7 +133,7 @@ cd ..
 streamlit run dashboard.py
 
 ```
-📊 Business Insights
+## 📊 Business Insights
 
 
 ![RideCo dashboard Image](https://github.com/Bijay555/rideco-analytics-portfolio/blob/main/images/dashboard.png)
