@@ -11,6 +11,7 @@ This project simulates a production-grade ELT (Extract, Load, Transform) pipelin
 The goal was not just to visualize data, but to build a robust Analytics Engineering architecture that ensures data accuracy, modularity, and performance. I ingested millions of rows of NYC Taxi data, modeled it using a Star Schema, and built an interactive dashboard for stakeholders.
 
 🏗️ The Architecture
+```
 
 graph LR
     A[NYC TLC API] -->|Extract (Python/Pandas)| B(Airflow DAG)
@@ -22,7 +23,7 @@ graph LR
     subgraph Quality Gates
     D -- Tests --> G[dbt test]
     end
-
+```
 
 🚀 Key Features & Engineering Decisions
 
@@ -63,6 +64,7 @@ Insight: Analyze peak rush hours to optimize fleet allocation.
 Performance: Queries the pre-aggregated fact_trips table for sub-second load times.
 
 📂 Project Structure
+```
 
 rideco-analytics-portfolio/
 ├── dags/                  # Airflow DAGs for orchestration
@@ -76,7 +78,7 @@ rideco-analytics-portfolio/
 │   └── ingest_data.py     # Standalone ingestion script
 ├── dashboard.py           # Streamlit Visualization App
 └── requirements.txt       # Python dependencies
-
+```
 
 🛠️ How to Run This Project
 
@@ -91,50 +93,51 @@ PostgreSQL
 1. Setup Environment
 
 Clone the repo and install dependencies:
+```
 
 git clone [https://github.com/Bijay555/rideco-analytics-portfolio.git](https://github.com/Bijay555/rideco-analytics-portfolio.git)
 cd rideco-analytics-portfolio
 pip install -r requirements.txt
-
+```
 
 2. Configure Credentials
 
 Create a .env file in the root directory:
-
+```
 DB_USER=username 
 DB_PASSWORD=your_password
 DB_HOST=localhost
 DB_PORT=5432
 DB_NAME=database_name
-
+```
 3. Run the Pipeline
 
 You can run the ingestion script manually or trigger the Airflow DAG:
-
+```
 python3 scripts/ingest_data.py
-
+```
 
 4. Transform Data
 
 Run the dbt models and tests:
-
+```
 cd dbt_rideco
 dbt run   # Builds the tables
 dbt test  # Validates data quality
 
-
+```
 5. Launch Dashboard
 
 Start the local web server:
-
+```
 cd ..
 streamlit run dashboard.py
 
-
+```
 📊 Business Insights
 
 
-![RideCo dashboard Image] (https://github.com/Bijay555/rideco-analytics-portfolio/blob/main/images/dashboard.png)
+![RideCo dashboard Image](https://github.com/Bijay555/rideco-analytics-portfolio/blob/main/images/dashboard.png)
 
 Through this analysis, I identified:
 
