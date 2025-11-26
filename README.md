@@ -1,4 +1,3 @@
-# rideco-analytics-portfolio
 
 🚖 RIDECO Taxi Analytics Engineering Pipeline
 
