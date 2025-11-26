@@ -31,37 +31,37 @@ graph LR
 
 Instead of manual CSV uploads, I built an automated pipeline using Apache Airflow.
 
-Idempotency: The pipeline accepts a logical_date parameter. If I need to backfill data for January 2024, I can trigger that specific run date, and the script dynamically generates the correct URL.
++ Idempotency: The pipeline accepts a logical_date parameter. If I need to backfill data for January 2024, I can trigger that specific run date, and the script dynamically generates the correct URL.
 
-Memory Management: Utilized pandas chunking to handle large Parquet files without crashing memory.
++ Memory Management: Utilized pandas chunking to handle large Parquet files without crashing memory.
 
-Security: All database credentials are managed via environment variables (.env), ensuring no secrets are hardcoded.
++ Security: All database credentials are managed via environment variables (.env), ensuring no secrets are hardcoded.
 
 2. Analytics Engineering (dbt)
 
 Transformation logic is decoupled from the visualization layer using dbt (data build tool).
 
-Staging Layer (Views): Cleans raw column names (e.g., tpep_pickup_datetime → pickup_at) and handles type casting.
++ Staging Layer (Views): Cleans raw column names (e.g., tpep_pickup_datetime → pickup_at) and handles type casting.
 
-Marts Layer (Tables): Materialized as physical tables for high-performance querying in the dashboard.
++ Marts Layer (Tables): Materialized as physical tables for high-performance querying in the dashboard.
 
-Business Logic: engineered metrics like duration_min and filtered out data anomalies (e.g., negative fares or 0-mile trips).
++ Business Logic: engineered metrics like duration_min and filtered out data anomalies (e.g., negative fares or 0-mile trips).
 
 3. Data Quality & Governance
 
 Trust is the currency of data. I implemented automated testing to catch bugs before they reach the dashboard:
 
-Schema Tests: Enforced unique and not_null constraints on Primary Keys.
++ Schema Tests: Enforced unique and not_null constraints on Primary Keys.
 
-Business Tests: Validated that dropoff_time > pickup_time and passenger_count > 0.
++ Business Tests: Validated that dropoff_time > pickup_time and passenger_count > 0.
 
 4. Code-First Visualization (Streamlit)
 
 Instead of a static report, I built a dynamic Python web app.
 
-Insight: Analyze peak rush hours to optimize fleet allocation.
++ Insight: Analyze peak rush hours to optimize fleet allocation.
 
-Performance: Queries the pre-aggregated fact_trips table for sub-second load times.
++ Performance: Queries the pre-aggregated fact_trips table for sub-second load times.
 
 📂 Project Structure
 ```
