@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: taxi_data
+    database: rideco_analytics
+    schema: public
+    tables:
+      - name: raw_taxi_trips

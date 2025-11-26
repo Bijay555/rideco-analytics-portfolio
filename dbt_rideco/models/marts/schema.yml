@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: fact_trips
+    description: "The core fact table for ride analysis"
+    columns:
+      - name: vendor_id
+        description: "1=Creative Mobile, 2=VeriFone"
+        tests:
+          - not_null
+
+      - name: total_amount
+        tests:
+          - not_null
+
+      - name: duration_min
+        tests:
+          # Fail if any ride is 0 minutes or less (impossible)
+          - not_null
